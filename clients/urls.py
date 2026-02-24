@@ -1,6 +1,6 @@
 from django.contrib import admin
-from clients.views import register_view, login_view, logout_view
 from django.urls import path
+from clients.views import register_view, login_view, logout_view
 
 app_name = "clients"
 

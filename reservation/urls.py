@@ -3,4 +3,6 @@ from django.urls import path
 
 app_name = "reservation"
 
-urlpatterns = []
+urlpatterns = [
+    
+]

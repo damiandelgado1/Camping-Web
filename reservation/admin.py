@@ -4,5 +4,5 @@ from .models import Reservation
 # View actual Reservs
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ("client", "cabin", "entrance", "exit")
-    search_fields = ("client", "cabin")
+    list_display = ("name", "last_name", "email", "persons", "entrance", "exit")
+    search_fields = ("name", "entrance", "exit")

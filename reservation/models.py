@@ -1,15 +1,14 @@
 from django.db import models
-from cabin.models import Cabin
-from clients.models import Client
 from django.utils import timezone
 
 # Data of the Reservation
 class Reservation(models.Model):
-    client = models.OneToOneField(Client, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, verbose_name="Nombre del Cliente")
+    last_name = models.CharField(max_length=100, verbose_name="Apellido del Cliente")
+    email = models.CharField(max_length=50, verbose_name="Email del Cliente")
     persons = models.IntegerField()
     entrance = models.DateTimeField(verbose_name="Fecha y Hora de Entrada" ,default=timezone.now)
     exit = models.DateTimeField(verbose_name="Fecha y Hora de Salida")
-    cabin = models.OneToOneField(Cabin, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.client, self.persons, self.entrance, self.exist, self.cabin
+        return self.name, self.email, self.persons, self.entrance, self.exit
