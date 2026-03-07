@@ -1,23 +1,37 @@
 from django.shortcuts import render
-
+from django.urls import reverse_lazy
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Cabin
 
 # Show all Cabin
-def cabins_list(request):
-    cabins = Cabin.objects.all()
+class CabinList(ListView):
+    model = Cabin
+    template_name = "cabin/CabinList.html"
+    context_object_name = 'Cabaña'
 
-    context = {
-        'cabins': cabins
-    }
+# Show detail of the Cabin
+class CabinDetail(DetailView):
+    model = Cabin
+    template_name = "cabin/CabinDetail.html"
+    context_object_name = 'Cabaña'
 
-    return render(request, "cabin/cabin_list.html", context)
+# Create new Cabin for reserv
+class CabinCreate(CreateView):
+    model = Cabin
+    template_name = "cabin/CabinCreate.html"
+    fields = ["number", "description", "rooms", "bathroom", "dining", "kitchen", "availability", "price", "show_home"]
+    success_url = reverse_lazy('cabin:CabinList')
 
-# Show description and details of the Cabin
-def cabin_detail(request, id):
-    cabin = Cabin.objects.get(pk=id)
+# Update data Cabin
+class CabinUpdate(UpdateView):
+    model = Cabin
+    template_name = "cabin/CabinUpdate.html"
+    fields = ["description", "rooms", "availability"]
+    success_url = reverse_lazy('cabin:CabinList')
 
-    context = {
-        'cabin': cabin
-    }
-
-    return render(request, "cabin/cabin_detail.html", context)
+# Delete a Cabin
+class CabinDelete(DeleteView):
+    model = Cabin
+    template_name = "cabin/CabinDelete.html"

@@ -1,0 +1,9 @@
+{% block head_tile%}Cabañas{% endblock %}
+
+{% block page_content %}
+    <h3>Cabañas disponibles para Reservas</h3>
+
+    {% for cabin in cabins %}
+        <a href="{% url 'cabin:detail' cabin.pk %}"> {{cabin.number}} </a>
+    {% endfor %}
+{% endblock %}

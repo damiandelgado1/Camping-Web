@@ -1,0 +1,10 @@
+{% block head_tile %} Cabañas del Camping {% endblock %}
+{% block page_tile %} Nueva Cabaña para Reservas {% endblock %}
+
+{% block page_content %}
+    <h3>Informacion de la Cabaña</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Crear Cabaña</button>
+{% endblock %}

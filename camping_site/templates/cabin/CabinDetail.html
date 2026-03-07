@@ -1,0 +1,15 @@
+{% block head_tile %}Detalles de la Cabaña{% endblock %}
+
+{% block page_content %}
+    <h1>{{ number }}</h1>
+    <p>Nro. de la Cabaña: {{cabin.number}}</p>
+    <p>Descripcion: {{cabin.description}}</p>
+    <p>Habitaciones: {{cabin.rooms}}</p>
+    <p>Baños: {{cabin.bathrooms}}</p>
+    <p>Comedor: {{cabin.dining}}</p>
+    <p>Cocina: {{cabin.kitchen}}</p>
+    <p>Disponibilidad: {{cabin.availability}}</p>
+    <p>Precio: {{cabin.price}}</p>
+
+    <a href="{ url 'cabin:list' }">Volver a las Cabañas Disponibles</a>
+{% endblock %}

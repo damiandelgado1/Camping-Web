@@ -1,0 +1,10 @@
+{% block head_tile %} Cabaña {% endblock %}
+
+{% block page_content %} 
+    <h2>Editar informacion de la Cabaña</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Actualizar Informacion</button>
+    </form>
+{% endblock %}
