@@ -8,8 +8,8 @@ class MakeReservation(forms.Form):
     last_name = forms.CharField(max_length=100, label="Apellido")
     email = forms.CharField(max_length=100, label="Email")
     persons = forms.IntegerField()
-    entrance = forms.DateTimeField(verbose_name="Fecha y Hora de Entrada" ,default=timezone.now)
-    exit = forms.DateTimeField(verbose_name="Fecha y Hora de Salida")
+    entrance = forms.DateTimeField()
+    exit = forms.DateTimeField()
 
     def cleaned_email(self):
         email = self.cleaned_data.get("email")
