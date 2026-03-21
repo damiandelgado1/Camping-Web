@@ -1,1 +1,14 @@
-{% block %}
+{% block head_tile %}Detalles de la Reserva{% endblock %}
+
+{% block page_content %}
+    <h1>Reserva</h1>
+    <p>Cliente: {{Client.first_name}} {{Client.last_name}}</p>
+    <p>Datos de Contacto: Email: {{Client.email}} - Telefono: {{Client.phone}}</p>
+    <p>Nro. de la Cabaña reservada: {{Cabin.number}}</p>
+    <p>Nro. de Personas: {{client.persons}}
+    <p>Fecha de Entrada: {{Reservation.entrance}}</p>
+    <p>Fecha de Salida: {{Reservation.exit}}</p>
+    <p>Precio: {{Cabin.price}}</p>
+
+    <a href="{ url 'cabin:list' }">Volver a las Cabañas Disponibles</a>
+{% endblock %}

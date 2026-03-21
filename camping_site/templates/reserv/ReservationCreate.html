@@ -1,10 +1,10 @@
 {% block head_tile %} Cabaña {% endblock %}
-{% block page_tile %} Cancelar Reserva {% endblock %}
+{% block page_tile %} Crear una Nueva Reserva {% endblock %}
 
 {% block page_content %}
-    <h3>¿Esta seguro de que quiere Cancelar esta Reserva?</h3>
+    <h3>Nueva Reserva</h3>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button>Cancelar Reserva</button>
+        <button>Confirmar Reserva</button>
 {% endblock %}

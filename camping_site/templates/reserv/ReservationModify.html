@@ -1,0 +1,10 @@
+{% block head_tile %} Reserva hecha por {{client.first_name}} {% endblock %}
+
+{% block page_content %} 
+    <h2>Modificar Reserva creada</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Actualizar Reserva</button>
+    </form>
+{% endblock %}

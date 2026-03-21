@@ -1,32 +1,18 @@
 from django.utils import timezone
 from django import forms
-from cabin.models import Cabin
+from django.core.exceptions import ValidationError
 
 # Make new Reservation
 class MakeReservation(forms.Form):
-    first_name = forms.CharField(max_length=100, label="Nombre")
-    last_name = forms.CharField(max_length=100, label="Apellido")
-    email = forms.CharField(max_length=100, label="Email")
     persons = forms.IntegerField()
     entrance = forms.DateTimeField()
     exit = forms.DateTimeField()
 
-    def cleaned_email(self):
-        email = self.cleaned_data.get("email")
+    def clean_entrance_exit(self):
+        entrance = self.cleaned_data.get("entrance")
+        exit = self.cleaned_data.get("exit")
 
-        if "@gmail.com" not in email:
-            raise forms.ValidationError("Debe ingresar '@gmail.com' en su Email")
-        
-        if email != '':
-            raise forms.ValidationError("Debe Ingresar el Email")
-
-    class Meta:
-        model = Cabin
-        fields = [
-            'Nombre',
-            'Apellido',
-            'Email',
-            'Nro. de Personas',
-            'Fecha de Entrada',
-            'Fecha de Salida',
-        ]
+        if entrance == exit:
+            raise ValidationError("No puedes reservar la Cabaña solo por el Dia")
+        elif exit < entrance:
+            raise ValidationError("No es valido Salir antes de la Entrada")

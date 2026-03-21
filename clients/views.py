@@ -2,9 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
-
 from .forms import RegisterClient, LoginClient
-from .models import Client
+from .models import User
 
 # Register to the Client
 def register_view(request):
@@ -13,14 +12,14 @@ def register_view(request):
 
         if form.is_valid():
             username = form.cleaned_data['username']
-            first_name = form.cleaned_data['name']
-            last_name = form.cleaned_data['lastname']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             password1 = form.cleaned_data['password1']
             password2 = form.cleaned_data['password2']
 
-            client = Client.objects.create_client(username, email, phone, password2)
+            client = User.objects.create(username, email, phone, password2)
 
             if client:
                 client.first_name = first_name
@@ -62,7 +61,7 @@ def login_view(request):
 
             if user is not None:
                 login(request, user)
-                return redirect(reverse('main:home'))
+                return redirect(reverse('main/home.html'))
 
             else:
                 context = {
@@ -83,4 +82,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect(reverse('main:home'))
+    return redirect(reverse('main/home.html'))

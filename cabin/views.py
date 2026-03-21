@@ -22,16 +22,16 @@ class CabinCreate(CreateView):
     model = Cabin
     template_name = "cabin/CabinCreate.html"
     fields = ["number", "description", "rooms", "bathroom", "dining", "kitchen", "availability", "price", "show_home"]
-    success_url = reverse_lazy('cabin:CabinList')
+    success_url = reverse_lazy('cabin:list')
 
 # Update data Cabin
 class CabinUpdate(UpdateView):
     model = Cabin
     template_name = "cabin/CabinUpdate.html"
     fields = ["description", "rooms", "availability"]
-    success_url = reverse_lazy('cabin:CabinList')
+    success_url = reverse_lazy('cabin:detail')
 
 # Delete a Cabin
 class CabinDelete(DeleteView):
     model = Cabin
-    template_name = "cabin/CabinDelete.html"
+    template_name = "cabin:home"

@@ -6,9 +6,8 @@ class Cabin(models.Model):
     description = models.TextField(verbose_name="Descripcion")
     rooms = models.IntegerField(verbose_name="Nro. de Habitaciones")
     bathrooms = models.IntegerField(verbose_name="Baños")
-    dining = models.IntegerField(verbose_name="Comedor")
-    kitchen = models.IntegerField(verbose_name="Cocina")
-    availability = models.BooleanField(primary_key=True, blank=True)
+    dining = models.BooleanField(default=True, verbose_name="Comedor")
+    kitchen = models.BooleanField(default=True, verbose_name="Cocina")
     price = models.DecimalField(max_digits=5, decimal_places=2)
     show_home = models.BooleanField("Mostrar en el Inicio", default=False)
 
@@ -17,4 +16,4 @@ class Cabin(models.Model):
         verbose_name_plural = 'Cabañas'
 
     def __str__(self):
-        return self.number, self.description, self.availability, self.price
+        return f"Nro. de Cabaña {self.number}, Precio {self.price}"

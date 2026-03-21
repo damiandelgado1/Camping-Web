@@ -1,13 +1,12 @@
 from django.contrib import admin
 from django.urls import path
-from reservation.views import ReservationDetail, ReservationMake, ReservationModify, ReservationCancel
+from reservation.views import ReservationCreate, ReservationDetail, ReservationModify, ReservationCancel
 
 app_name = "reservation"
 
 urlpatterns = [
-    path('detail/<int:id>', ReservationDetail.as_view(), name="reserva_detail"),
-    path('make/<int:id>', ReservationMake.as_view(), name="reserva_make"),
-    path('modify/<int:id>', ReservationModify.as_view(), name="reserva_modify"),
-    path('cancel/<int:id>', ReservationCancel.as_view(), name="reserva_cancel"),
-    path('admin/', admin.site.urls)
+    path('create/<int:id>/', ReservationCreate, name="reserva_create"),
+    path('detail/<int:id>/', ReservationDetail, name="reserva_detail"),
+    path('modify/<int:id>/', ReservationModify, name="reserva_modify"),
+    path('cancel/<int:id>/', ReservationCancel, name="reserva_cancel"),
 ]

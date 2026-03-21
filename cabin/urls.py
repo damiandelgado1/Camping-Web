@@ -6,9 +6,8 @@ app_name = "cabin"
 
 urlpatterns = [
     path('', CabinList.as_view(), name="cabaña_list"),
+    path('create/', CabinCreate.as_view(), name="cabaña_create"),
     path('detail/<int:id>/', CabinDetail.as_view(), name="cabaña_detail"),
-    path('create/<int:id>/', CabinCreate.as_view(), name="cabaña_create"),
     path('update/<int:id>/', CabinUpdate.as_view(), name="cabaña_update"),
     path('delete/<int:id>/', CabinDelete.as_view(), name="cabaña_delete"),
-    path('admin/', admin.site.urls)
 ]
