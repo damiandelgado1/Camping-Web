@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from clients.forms import RegisterClient, LoginClient
 
 # Show Home of the Site Camping
 def home_site(request):

@@ -2,13 +2,13 @@
 
 {% block page_content %}
     <h1>Reserva</h1>
-    <p>Cliente: {{Client.first_name}} {{Client.last_name}}</p>
-    <p>Datos de Contacto: Email: {{Client.email}} - Telefono: {{Client.phone}}</p>
-    <p>Nro. de la Cabaña reservada: {{Cabin.number}}</p>
-    <p>Nro. de Personas: {{client.persons}}
-    <p>Fecha de Entrada: {{Reservation.entrance}}</p>
-    <p>Fecha de Salida: {{Reservation.exit}}</p>
-    <p>Precio: {{Cabin.price}}</p>
+    <p>Cliente: {{user.first_name}} {{user.last_name}}</p>
+    <p>Datos de Contacto: Email: {{user.email}} - Telefono: {{user.phone}}</p>
+    <p>Nro. de la Cabaña reservada: {{cabin.number}}</p>
+    <p>Nro. de Personas: {{reservation.persons}}
+    <p>Fecha de Entrada: {{reservation.entrance}}</p>
+    <p>Fecha de Salida: {{reservation.exit}}</p>
+    <p>Precio: {{cabin.price}}</p>
 
-    <a href="{ url 'cabin:list' }">Volver a las Cabañas Disponibles</a>
+    <a href="{% url 'cabin:list' %}">Volver a las Cabañas Disponibles</a>
 {% endblock %}

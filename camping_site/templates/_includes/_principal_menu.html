@@ -4,5 +4,5 @@
 <a href="{% url 'reserv:list' %}">Reservas</a>
 
 {% if request.user.is_authenticated%}
-    <p>Usuario Logueado: {{request.client.first_name}}
+    <p>Usuario Logueado: {{request.user.first_name}}</p>
 {% endif %}

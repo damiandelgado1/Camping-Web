@@ -9,13 +9,13 @@ from .models import Cabin
 class CabinList(ListView):
     model = Cabin
     template_name = "cabin/CabinList.html"
-    context_object_name = 'Cabaña'
+    context_object_name = 'cabins'
 
 # Show detail of the Cabin
 class CabinDetail(DetailView):
     model = Cabin
     template_name = "cabin/CabinDetail.html"
-    context_object_name = 'Cabaña'
+    context_object_name = 'cabin'
 
 # Create new Cabin for reserv
 class CabinCreate(CreateView):
